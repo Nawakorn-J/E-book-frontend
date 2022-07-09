@@ -1,13 +1,32 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.js";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import "./theme.css";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import AuthContextProvider from "./contexts/AuthContext";
+import ErrorContextProvider from "./contexts/ErrorContext";
+import ProductContextProvider from "./contexts/ProductContext";
+import OrderContextProvider from "./contexts/OrderContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <ErrorContextProvider>
+        <AuthContextProvider>
+          <ProductContextProvider>
+            <OrderContextProvider>
+              <App />
+            </OrderContextProvider>
+          </ProductContextProvider>
+        </AuthContextProvider>
+      </ErrorContextProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

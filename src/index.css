@@ -1,13 +1,45 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.setWidth {
+  width: 400px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.imagebox {
+  width: 300px;
+  height: 300px;
+}
+
+.imagebox > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cartBox {
+  width: 300px;
+  height: 300px;
+}
+
+.cartBox > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cartTotalBox {
+  width: 300px;
+  height: 200px;
+}
+
+.logoHead {
+  width: 60px;
+  height: 40px;
+}
+.addimageBox {
+  width: 200px;
+  height: 200px;
+}
+
+.addimageBox > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
