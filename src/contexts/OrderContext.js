@@ -1,10 +1,18 @@
 import axios from "../config/axios";
-import { createContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
+import { checkOutMany } from "../api/order";
+import { initOrder } from "../actions/orderAction";
 
 const OrderContext = createContext();
 
 function OrderContextProvider({ children }) {
-  const [orders, setOrders] = useState([]);
+  const [orders, dispatch] = useReducer([]);
 
   // useEffect(() => {
   //   const fetchOrder = async () => {
@@ -18,11 +26,27 @@ function OrderContextProvider({ children }) {
   //   };
   //   fetchOrder();
   // }, []);
-
+  // useEffect(() => {
+  //   const fetchOrder = async () => {
+  //     try {
+  //       const res = await checkOutMany();
+  //       dispatch(initOrder(res.data.orders));
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+  //   fetchOrder();
+  // }, []);
   return (
     <OrderContext.Provider value={{ orders }}>{children}</OrderContext.Provider>
   );
 }
 
 export default OrderContextProvider;
-export { OrderContext };
+
+function useOrder() {
+  const ctx = useContext(OrderContext);
+  return ctx;
+}
+
+export { useOrder };

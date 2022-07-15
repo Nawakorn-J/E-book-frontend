@@ -11,7 +11,6 @@ function ProductContextProvider({ children }) {
       try {
         const res = await axios.get("/products");
         setProducts(res.data);
-        console.log(res.data);
       } catch (err) {
         console.log(err);
       }

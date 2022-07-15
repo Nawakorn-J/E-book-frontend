@@ -1,12 +1,21 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { checkOutMany, checkOutOne } from "../api/order";
 
 function Basket(props) {
   const { cartItems, onAdd, onRemove } = props;
   let itemAmounts = cartItems.reduce((a, c) => a + c.amount * c.qty, 0);
-
+  const navigate = useNavigate();
   let total = itemAmounts;
-
+  // const handleSubmitLogin = async (e) => {
+  //   try {
+  //     e.preventDefault();
+  //     await login(userName, password);
+  //     navigate("/");
+  //   } catch (err) {
+  //     setError(err.response.data.message);
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (cartItems.length > 1) {
@@ -28,6 +37,7 @@ function Basket(props) {
       // await checkOutMany({ products: products });
       await checkOutMany(dat);
       // console.log("OK checkout");
+      navigate("/Cart");
     } else {
       console.log(cartItems[0]);
       await checkOutOne(

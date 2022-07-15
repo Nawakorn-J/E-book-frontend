@@ -13,6 +13,7 @@ import Dashboard from "../page/inventory/Dashboard";
 import AddProduct from "../page/inventory/AddProduct";
 import Sidebar from "../sidebar/Sidebar";
 import ContactUs from "../page/ContactUs";
+import EditsProfilePage from "../page/EditsProfilePage";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
           <Route path="" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/editsProfile" element={<EditsProfilePage />} />
           <Route path="/product" element={<ProductPage />} />
           <Route path="/Cart" element={<CartPage />} />
           <Route path="/myshelf" element={<MyShelfPage />} />

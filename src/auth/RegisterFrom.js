@@ -91,7 +91,7 @@ function RegisterForm() {
         <input
           className="form-control"
           type="text"
-          placeholder="confirm password"
+          placeholder="LastName"
           value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />

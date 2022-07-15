@@ -5,7 +5,8 @@ function HomeCard(props) {
   const { product, onAdd, sel, onRemove } = props;
   const modalEl = useRef();
 
-  const onDetailClick = () => {
+  const onDetailClick = (e) => {
+    e.preventDefault();
     const modalObj = new Modal(modalEl.current);
     modalObj.show();
   };
@@ -25,7 +26,7 @@ function HomeCard(props) {
     // </div>
     <>
       <div className="col py-3 border-bottom border-end rounded-3 ms-2 cartBox">
-        <img className="small" src={product.image} alt={product.productName} />
+        <img className="small " src={product.image} alt={product.productName} />
         <div
           className={`fs-4 mt-2 ${
             sel && "bg-danger rounded bg-gradient bg-opacity-50 "
